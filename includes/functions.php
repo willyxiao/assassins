@@ -16,14 +16,17 @@ function isValid($uname, $hash) {
 		throw new Exception("Nopefish"); 
 	}
 	
-	$a = alphanumeric(crypt($tmp[0]["password"] . date("MDAH"), "assassin")); 
-	$b = alphanumeric(crypt($tmp[0]["password"] . date("MDA") . (date("H") - 1), "assassin")); 	
-	
+	$a = alphanumeric(crypt($tmp[0]["password"] . date("D"), date("i"))); 
+	$b = alphanumeric(crypt($tmp[0]["password"] . date("D"), date("i") -1)); 	
+	$c = alphanumeric(crypt($tmp[0]["password"] . date("D"), date("H"))); 
+	//var_dump($a); 
+	//var_dump($b); 
+	//var_dump($c); 
 	return ($hash == $a || $hash == $b); 
 }
 
 function convert($pw) {
-	return alphanumeric(crypt($pw . date("MDAH"), "assassin")); 
+	return alphanumeric(crypt($pw . date("D"), date("i"))); 
 }
 
 
