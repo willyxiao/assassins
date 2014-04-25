@@ -3,7 +3,29 @@
 function render($page_name, $values = array()) {
 	extract($values); 
 	require(realpath(dirname(__FILE__) . "/../templates/" . $page_name)); 
+	exit;
 }
+
+function alphanumeric($string) {
+	return preg_replace("/[^a-z0-9.]+/i", "", $string);
+}
+
+function isValid($uname, $hash) {
+	$tmp = query("SELECT * FROM users WHERE uname=?", $uname); 
+	if ($tmp == false || count($tmp) < 1) {
+		throw new Exception("Nopefish"); 
+	}
+	
+	$a = alphanumeric(crypt($tmp[0]["password"] . date("MDAH"), "assassin")); 
+	$b = alphanumeric(crypt($tmp[0]["password"] . date("MDA") . (date("H") - 1), "assassin")); 	
+	
+	return ($hash == $a || $hash == $b); 
+}
+
+function convert($pw) {
+	return alphanumeric(crypt($pw . date("MDAH"), "assassin")); 
+}
+
 
 function query(/* $sql [, ... ] */) {
 	// SQL statement
