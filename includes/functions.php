@@ -1,8 +1,8 @@
 <?php
 
-function render($page_name, $values) {
-	extract $values; 
-	require("../templates/" . $page_name); 
+function render($page_name, $values = array()) {
+	extract($values); 
+	require(realpath(dirname(__FILE__) . "/../templates/" . $page_name)); 
 }
 
 function query(/* $sql [, ... ] */) {
