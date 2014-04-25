@@ -1,16 +1,12 @@
-<html>
-<head>
-	<title><?= "Assassin" ?></title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-</head>
-<body>
 	<?php
 		$user = $user[0];
 		$target = query("SELECT * FROM users WHERE userid=?", $user["to_kill"]); 
 		$target = $target[0];
 	?>
-
-	Your next target is <?= $target["name"] ?>
+	<div style="text-align: center">
+	<h1>
+		Your next target is <?= $target["name"] ?>
+	</h1>
 	<script>
 		function color(id) {
 			$("#" + id).prop("disabled", true); 
@@ -18,6 +14,10 @@
 		$(document).ready(function() {
 			<?= ($user["kill"] == 1) ? "color('killed');" : "" ?>
 			<?= ($user["dead"] == 1) ? "color('dead');" : "" ?>
+			function reset() {
+				location.reload(); 
+			}
+
 			$("#kill").click(function() {
 				if (!confirm("You sure you killed the target?")) {
 					return; 
@@ -30,9 +30,9 @@
 						action: "kill", 
 						hash: "<?= $user["password"] ?>", 
 						userid: "<?= $user["userid"] ?>", 
-						story: $("#killstory").value(), 
+						story: $("#killstory").val(), 
 					}, 
-					success: function() {color("kill"); }, 
+					success: function() {reset()}, 
 					error: function() {alert("there was an error! emal wxiao@college...");}
 				})
 			}); 
@@ -48,18 +48,46 @@
 						action: "dead", 
 						hash: "<?= $user["password"] ?>", 
 						userid: "<?= $user["userid"] ?>", 
-						story: $("#deathstory").value(), 
+						story: $("#deathstory").val(), 
 					}, 
-					success: function() {color("dead"); }, 
+					success: function() {reset()}, 
 					error: function() {alert("there was an error! email wxiao@college...");}, 
 				})
 			}); 
 		}); 
 	</script>
-	<textarea rows="5" cols="5" id="killstory">Tell your kill story here...</textarea>
-	<input id="kill" type="button" value="Killed"></input>
-	<textarea rows="5" cols="5" id="deathstory">Write your obituary here...</textarea>
-	<input id="dead" type="button" value="I Died"></input>
-	
+	<form>
+	<?php if($user["killed"] != 1): ?>
+	<div class="row">
+    		<div class="large-12 columns">
+     		<label>Kill Story
+        		<textarea id="killstory" placeholder="15 hours later, Kevin entered the dhall..."></textarea>
+      		</label>
+    		</div>
+  	</div>
+	<a href="#" id="kill" class="button">Killed My Target</a>
+
+	<div style="height: 20px"></div>
+	<div class="row">
+    		<div class="large-12 columns">
+      		<label>My Obituary
+        		<textarea id="deathstory" placeholder="One day, I was answering some calls for scas..." ></textarea>
+      		</label>
+    		</div>
+  	</div>
+	<a href="#" id="dead" class="button">I got wasted</a>
+	</form>
+	<?php else: ?>
+		<p> You've already killed your target, awaiting confirmation from them...before you can do anything else. </p>
+	<?php endif; ?>
+	</div>
+
+<script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+	<?php require("kill_story.php") ?>
 </body>
 </html>

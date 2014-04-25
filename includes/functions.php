@@ -2,6 +2,7 @@
 
 function render($page_name, $values = array()) {
 	extract($values); 
+	require(realpath(dirname(__FILE__)) . "/../templates/header.php"); 
 	require(realpath(dirname(__FILE__) . "/../templates/" . $page_name)); 
 	exit;
 }

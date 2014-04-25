@@ -16,6 +16,7 @@ if($action == "dead") {
 	query("UPDATE users SET dead=1 WHERE userid= ? ", $userid);
 	$assassin = query("SELECT * FROM users WHERE to_kill=? AND dead != 1", $userid);
 	$assassin = $assassin[0]; 
+	query("INSERT INTO killstory (killer, dead, is_kill_story, story) VALUES (?,?,?,?)", $assassin["userid"], $userid, 0, $story); 
 	if ( $assassin["killed"] == 1) {
 		query("UPDATE users SET killed=0, to_kill=? WHERE userid=?", $user["to_kill"], $assassin["userid"]); 
 	}	
@@ -24,6 +25,7 @@ if($action == "dead") {
 	query("UPDATE users SET killed=1 WHERE userid=?", $userid); 
 	$target = query("SELECT * FROM users WHERE userid=?", $user["to_kill"]); 
 	$target = $target[0]; 
+	query("INSERT INTO killstory (killer, dead, is_kill_story, story) VALUES (?,?,?,?)", $userid, $target["userid"], 1, $story); 
 	if ($target["dead"] == 1) {
 		query("UPDATE users SET killed=0, to_kill=? WHERE userid=?", $target["to_kill"], $userid); 
 	}
