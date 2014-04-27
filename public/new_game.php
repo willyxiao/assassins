@@ -44,22 +44,24 @@ function get_randomword($len = 10) {
 			shuffle($array); 
 		}
 		
+		file_put_contents("../data/backup", json_encode($array)); 
+
 		query("TRUNCATE TABLE users"); 
 		query("TRUNCATE TABLE killstory"); 
 		
-		for($i = 0: $i < count($array); $i++) {
-			$pw = get_randomword(5); 
+		for($i = 0; $i < count($array); $i++) {
+			$pw = get_randomword(4); 
 			$to = $array[$i][1] . "@college.harvard.edu"; 
-			$subject = "Your mission, should you choose to accept it..."; 
+			$subject = "Your mission, should you choose to accept it is..."; 
 			$message = 
-				"Welcome to Eliot House Assassins. Your missions is a dangerous one and not to be taken lightly. To find your target, visit: " . URL . ". \n"
-				. "Your username is your @college username and your password is: " . $pw . "\n"
-				. "Do not show anyone your password and do not give anyone the link once you login...security is not that tight. Hence why it is dangerous...\n"
-				. "May the odds be ever in your favor,\n"
+				"Welcome to Eliot House Assassins. Your missions is a dangerous one and not to be taken lightly. To find your target, visit: " . URL . ". \n\n"
+				. "Your username is your @college username (" . $array[$i][1] . ") and your password is: " . $pw . "\n\n"
+				. "Do not show anyone your password and do not give anyone the link once you login...security is not that tight. Hence why it is dangerous...\n\n"
+				. "May the odds be ever in your favor,\n\n"
 				. "FDDE"; 
 			$from = "From: willy@williamxiao.com\r\n";
 			mail($to, $subject, $message, $from);  
-			query("INSERT INTO users (userid, name, uname, password, dead, killed, to_kill) VALUES (?,?,?,?,?,?)", 
+			query("INSERT INTO users (userid, name, uname, password, dead, killed, to_kill) VALUES (?,?,?,?,?,?,?)", 
 				$i + 1, $array[$i][0], $array[$i][1], $pw, 0, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
 		}
 		

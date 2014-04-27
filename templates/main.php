@@ -7,6 +7,9 @@
 	<h1>
 		Your next target is <?= $target["name"] ?>
 	</h1>
+	<h3>
+		NOTICE!!! REPORT YOUR KILLS BEFORE YOUR DEATH!!!
+	</h3>
 	<script>
 		function color(id) {
 			$("#" + id).prop("disabled", true); 
