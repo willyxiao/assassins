@@ -1,5 +1,9 @@
-<html>
+<?php 
+	$alive = query("SELECT count(*) as alive FROM users WHERE dead != 1"); 
+	$alive = $alive[0]["alive"]; 
+?>
 
+<html>
 <head>
 	<title><?= "Assassin" ?></title>
 	<link href="css/normalize.css" rel="stylesheet" >
@@ -12,7 +16,7 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">Eliot Assassins</a></h1>
+      <h1><a href="#">Eliot Assassins: <?= $alive ?> alive</a></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
