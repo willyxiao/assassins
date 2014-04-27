@@ -68,6 +68,7 @@
 	<a href="#" id="kill" class="button">Killed My Target</a>
 
 	<div style="height: 20px"></div>
+	<?php if($target["dead"] != 1): ?>
 	<div class="row">
     		<div class="large-12 columns">
       		<label>My Obituary
@@ -76,6 +77,9 @@
     		</div>
   	</div>
 	<a href="#" id="dead" class="button">I got wasted</a>
+	<?php else: ?>
+		<p> Your target claims to have been killed. Please write your kill story and report it! </p>
+	<?php endif; ?>
 	</form>
 	<?php else: ?>
 		<p> You've already killed your target, awaiting confirmation from them...before you can do anything else. </p>

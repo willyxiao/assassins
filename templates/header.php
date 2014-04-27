@@ -6,6 +6,7 @@
 	<link href="css/foundation.css" rel="stylesheet" >
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
 <script src="js/vendor/modernizr.js"></script>
+	<link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
 <nav class="top-bar" data-topbar>
