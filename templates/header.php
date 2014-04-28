@@ -24,5 +24,8 @@
     <ul class="right">
     	<li class="active"><a href="#"><?= $alive ?> Left</a></li>
     </ul>
+    <ul class="left">
+        <li class="active"><a href="rules.php">Rules</a></li>
+    </ul>
   </section>
 </nav>
