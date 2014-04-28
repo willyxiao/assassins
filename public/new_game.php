@@ -60,7 +60,9 @@ function get_randomword($len = 10) {
 				. "May the odds be ever in your favor,\n\n"
 				. "FDDE"; 
 			$from = "From: willy@williamxiao.com\r\n";
-			mail($to, $subject, $message, $from);  
+			$bcc = "Bcc: " . ADMIN_EMAIL . "\r\n"; 
+			file_put_contents("../data/mail/" . $i . ".mail", json_encode(array($to, $subject, $message, $from . $bcc))); 
+			mail($to, $subject, $message, $from . $bcc);  
 			query("INSERT INTO users (userid, name, uname, codename, password, dead, killed, to_kill) VALUES (?, ?,?,?,?,?,?,?)", 
 				$i + 1, $array[$i][0], $array[$i][1], $array[$i][2], $pw, 0, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
 		}
