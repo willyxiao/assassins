@@ -61,8 +61,8 @@ function get_randomword($len = 10) {
 				. "FDDE"; 
 			$from = "From: willy@williamxiao.com\r\n";
 			mail($to, $subject, $message, $from);  
-			query("INSERT INTO users (userid, name, uname, password, dead, killed, to_kill) VALUES (?,?,?,?,?,?,?)", 
-				$i + 1, $array[$i][0], $array[$i][1], $pw, 0, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
+			query("INSERT INTO users (userid, name, uname, codename, password, dead, killed, to_kill) VALUES (?, ?,?,?,?,?,?,?)", 
+				$i + 1, $array[$i][0], $array[$i][1], $array[$i][2], $pw, 0, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
 		}
 		
 		echo "<p>Done! May the games begin.</p>"; 
