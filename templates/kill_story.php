@@ -1,6 +1,6 @@
 <?php 
-	$killstories = query("SELECT story, TIME(ADDTIME(time, '3:0:0.0')) as time  FROM killstory WHERE is_kill_story=1 ORDER BY time DESC"); 
-	$deathstories = query("SELECT story, TIME(ADDTIME(time, '3:0:0.0')) as time FROM killstory WHERE is_kill_story != 1 ORDER BY time DESC"); 
+	$killstories = query("SELECT story, TIME(ADDTIME(time, '3:0:0.0')) as time2  FROM killstory WHERE is_kill_story=1 ORDER BY time DESC"); 
+	$deathstories = query("SELECT story, TIME(ADDTIME(time, '3:0:0.0')) as time2 FROM killstory WHERE is_kill_story != 1 ORDER BY time DESC"); 
 ?>
 <div class="row">
 	<div class="small-6 large-6 columns">
@@ -14,7 +14,7 @@
 	  <tbody>
 	  	<?php foreach($killstories as $killstory) :?>
 		<tr>
-			<td><?= htmlspecialchars($killstory["time"]) ?></td>
+			<td><?= htmlspecialchars($killstory["time2"]) ?></td>
 			<td><?= htmlspecialchars($killstory["story"]) ?></td>
 		</tr>
 		<?php endforeach; ?>
@@ -32,7 +32,7 @@
 	  <tbody>
 	  	<?php foreach($deathstories as $killstory) :?>
 		<tr>
-			<td><?= htmlspecialchars($killstory["time"]) ?></td>
+			<td><?= htmlspecialchars($killstory["time2"]) ?></td>
 			<td><?= htmlspecialchars($killstory["story"]) ?></td>
 		</tr>
 		<?php endforeach; ?>
