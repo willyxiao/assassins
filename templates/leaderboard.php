@@ -1,5 +1,5 @@
 <?php
-	$leaderboard = query("SELECT codename, count(*) as kills FROM killstory JOIN users ON users.userid=killer WHERE is_kill_story = 1 GROUP BY killer ORDER BY kills DESC"); 
+	$leaderboard = query("SELECT codename, count(*) as kills FROM killstory JOIN users ON users.userid=killer WHERE is_kill_story != 1 GROUP BY killer ORDER BY kills DESC"); 
 ?>
 <table>
 	<thead>
