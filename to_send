@@ -1,0 +1,5 @@
+for file in data/mail/*.mail
+do
+	echo "$file"
+	cat "$file" | /usr/sbin/sendmail.sendmail -t
+done

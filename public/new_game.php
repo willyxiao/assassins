@@ -40,9 +40,7 @@ function get_randomword($len = 10) {
 		var_dump($array); 
 		echo "</p>"; 
 		
-		for($i = 0; $i < 7; $i++) {
-			shuffle($array); 
-		}
+		shuffle($array); 
 		
 		file_put_contents("../data/backup", json_encode($array)); 
 
@@ -51,18 +49,25 @@ function get_randomword($len = 10) {
 		
 		for($i = 0; $i < count($array); $i++) {
 			$pw = get_randomword(4); 
-			$to = $array[$i][1] . "@college.harvard.edu"; 
-			$subject = "Your mission, should you choose to accept it is..."; 
+			$to = "To: " . $array[$i][1] . "@college.harvard.edu"; 
+			$subject = "Subject: Your mission, should you choose to accept it is..."; 
 			$message = 
-				"Welcome to Eliot House Assassins. Your missions is a dangerous one and not to be taken lightly. To find your target, visit: " . URL . ". \n\n"
-				. "Your username is your @college username (" . $array[$i][1] . ") and your password is: " . $pw . "\n\n"
+				"Welcome to Eliot House Assassins.\n"
+				. "Your missions is a dangerous one and not to be taken lightly. To find your target, visit: " . URL . ". \n\n"
+				. "Your username is: " . $array[$i][1] . "\n"
+				. "Your password is: " . $pw . "\n\n"
 				. "Do not show anyone your password and do not give anyone the link once you login...security is not that tight. Hence why it is dangerous...\n\n"
 				. "May the odds be ever in your favor,\n\n"
 				. "FDDE"; 
-			$from = "From: willy@williamxiao.com\r\n";
-			$bcc = "Bcc: " . ADMIN_EMAIL . "\r\n"; 
-			file_put_contents("../data/mail/" . $i . ".mail", json_encode(array($to, $subject, $message, $from . $bcc))); 
-			mail($to, $subject, $message, $from . $bcc);  
+			$from = "From: willy@williamxiao.com";
+			$bcc = "Bcc: " . ADMIN_EMAIL ; 
+			file_put_contents("../data/mail/" . $i . ".mail", 
+				$to . "\r\n" 
+				. $from . "\r\n" 
+				. $bcc . "\r\n" 
+				. $subject . "\r\n"
+				. $message); 
+			//mail($to, $subject, $message, $from . $bcc);  
 			query("INSERT INTO users (userid, name, uname, codename, password, dead, killed, to_kill) VALUES (?, ?,?,?,?,?,?,?)", 
 				$i + 1, $array[$i][0], $array[$i][1], $array[$i][2], $pw, 0, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
 		}
