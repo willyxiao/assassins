@@ -15,7 +15,7 @@
 	  	<?php foreach($killstories as $killstory) :?>
 		<tr>
 			<td><?= htmlspecialchars($killstory["time2"]) ?></td>
-			<td><?= htmlspecialchars($killstory["story"]) ?></td>
+			<td><?= htmlspecialchars(stripslashes($killstory["story"])) ?></td>
 		</tr>
 		<?php endforeach; ?>
 	  </tbody>
@@ -33,7 +33,7 @@
 	  	<?php foreach($deathstories as $killstory) :?>
 		<tr>
 			<td><?= htmlspecialchars($killstory["time2"]) ?></td>
-			<td><?= htmlspecialchars($killstory["story"]) ?></td>
+			<td><?= htmlspecialchars(stripslashes($killstory["story"])) ?></td>
 		</tr>
 		<?php endforeach; ?>
 	  </tbody>

@@ -2,3 +2,4 @@
 */constants.php
 *.swp
 data/*
+public/mysql.html
