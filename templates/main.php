@@ -95,6 +95,6 @@
     $(document).foundation();
   </script>
 
-	<?php require("kill_story.php") ?>
+	<?php require("kill_story_js_loader.php") ?>
 </body>
 </html>
