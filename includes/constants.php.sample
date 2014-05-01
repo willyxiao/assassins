@@ -1,0 +1,9 @@
+<?php
+define("QUERY_DATABASE", ""); 
+define("QUERY_SERVER", ""); 
+define("QUERY_USERNAME", ""); 
+define("QUERY_PASSWORD", ""); 
+define("NEW_GAME_RECEIVING", 1); 
+define("URL", ""); 
+define("ADMIN_EMAIL", ""); 
+?>
