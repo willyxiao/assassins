@@ -13,6 +13,7 @@
 	<link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
+<?php require("../data/google_analytics.php"); ?>
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
