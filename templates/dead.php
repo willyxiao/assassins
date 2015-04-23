@@ -34,9 +34,8 @@
     </script>
     <div class="row">
           <div class="large-12 columns">
-            <label>My Obituary
-              <textarea id="deathstory" placeholder="One day, I was answering some calls for scas..." ></textarea>
-            </label>
+            <h3>My Obituary</h3>
+            <textarea id="deathstory" placeholder="One day, I was answering some calls for scas..." ></textarea>
           </div>
       </div>
     <a href="#" id="dead" class="button">I got wasted</a>
