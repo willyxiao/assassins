@@ -1,4 +1,4 @@
-for file in data/mail_left/*.mail
+for file in data/mail/*.mail
 do
 	echo "$file"
 	cat "$file" | /usr/sbin/sendmail.sendmail -t
