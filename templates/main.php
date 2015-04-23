@@ -9,7 +9,7 @@
 	</h1>
 	<script>
 		function color(id) {
-			$("#" + id).prop("disabled", true); 
+			$("#" + id).prop("disabled", true);
 		}
 		$(document).ready(function() {
 			<?= ($user["kill"] == 1) ? "color('killed');" : "" ?>
