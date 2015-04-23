@@ -14,11 +14,27 @@ $user = $user[0];
 // validation
 if ($hash != $user["password"]) {
 	die("GTFO");
-} else if ($user["dead"] == 1) {
-	die("you dead doe...");
 }
 
-if ($action == "kill") {
+if($action == "dead"){
+	if($user["dead"] != 1){
+		die("You ain't dead yet 1");
+	}
+
+	$killer = query("SELECT * FROM killstory WHERE dead=?", $userid);
+	if(count($killer) < 1){
+		die("You ain't dead yet.");
+	} else if(count($killer) > 1){
+		die("You've already submitted as story.");
+	}
+	$killer = $killer[0];
+	query("INSERT INTO killstory (killer, dead, is_kill_story, story) VALUES (?,?,?,?)", $killer["killer"], $userid, 0, $story);
+
+} else if ($action == "kill") {
+	if($user["dead"] == 1){
+		die("you dead doe");
+	}
+
 	mail(ADMIN_EMAIL, "Kill Report", $user["name"] . " killed...");
 	$target = query("SELECT * FROM users WHERE userid=?", $user["to_kill"]);
 	$target = $target[0];

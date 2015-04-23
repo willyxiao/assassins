@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	if($tmp == false || count($tmp) < 1) {
 		apologize("You are so wrong");
 	} else if ($tmp[0]["dead"] == 1) {
-		render("dead.php", array("title" => "Death"));
+		render("dead.php", array("title" => "Death", "user" => $tmp));
 	}
 
 	render("main.php", array("title" => "Eliot Assassins", "user" => $tmp));
