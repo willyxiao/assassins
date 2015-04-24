@@ -10,5 +10,8 @@
 			<?php require("leaderboard.php"); ?>
 		</div>
 	</div>
+	<div class="row">
+		<?php require("kill_story_js_loader.php") ?>
+	</div>
 </body>
 </html>
