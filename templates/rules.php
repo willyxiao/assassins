@@ -1,7 +1,7 @@
 
  <!-- <div id="frame"> -->
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-8 small-centered columns">
     <h1>Eliot Assassins Rules (it does!)</h1>
     <DL>
     <DT><STRONG>To Play:</STRONG>
