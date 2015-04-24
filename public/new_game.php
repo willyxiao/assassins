@@ -67,14 +67,12 @@ function get_randomword($len = 10) {
 				. $bcc . "\r\n" 
 				. $subject . "\r\n"
 				. $message); 
-			//mail($to, $subject, $message, $from . $bcc);  
-			query("INSERT INTO users (userid, name, uname, codename, password, dead, to_kill) VALUES (?, ?,?,?,?,?,?,?)", 
-				$i + 1, $array[$i][0], $array[$i][1], $array[$i][2], $pw, 0, ($i == count($array) - 1 ? 1 : $i + 2));     	
+			//mail($to, $subject, $message, $from . $bcc);
+			query("INSERT INTO users (userid, name, uname, codename, password, dead, to_kill) VALUES (?, ?,?,?,?,?,?)",
+				$i + 1, $array[$i][0], $array[$i][1], $array[$i][2], $pw, 0, ($i == count($array) - 1 ? 1 : $i + 2));
 		}
-		
-		echo "<p>Done! May the games begin.</p>"; 
-	}
 
-	
+		echo "<p>Done! May the games begin.</p>";
+	}
 
 ?>
