@@ -23,7 +23,7 @@
   </ul>
   <section class="top-bar-section">
     <ul class="right">
-    	<li class="active"><a href="#"><?= $alive ?> Left</a></li>
+    	<li class="active"><a href="alive_players.php"><?= $alive ?> Left</a></li>
     </ul>
     <ul class="left">
         <li class="active"><a href="rules.php">Rules</a></li>
