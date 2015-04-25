@@ -13,5 +13,5 @@
 			<td><?= htmlspecialchars($item["kills"]) ?></td>
 		</tr>
 		<?php endforeach; ?>
-	<tbody>
+	</tbody>
 </table>
