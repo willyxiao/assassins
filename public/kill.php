@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	if($pass == false
 	|| count($pass) < 1
 	|| $pass[0]["password"] != $password) {
-		render("login.php", array("fail" => true, , "alive" => $alive));
+		render("login.php", array("fail" => true, "alive" => $alive));
 		exit;
 	}
 
