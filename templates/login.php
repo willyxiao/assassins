@@ -34,7 +34,7 @@
 			}
 
 			function find_prob(hour){
-				var prob = (-1*beta^alpha)*(beta+adjust(hour)*<?= $alive ?>)^(-1*alpha) + 1;
+				var prob = (-1*Math.pow(beta,alpha))*Math.pow(beta+adjust(hour)*<?= $alive ?>,-1*alpha) + 1;
 				return "<tr><td>" + String(hour) + "</td><td>" + String(prob) + "</td></tr>";
 			}
 
