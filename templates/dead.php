@@ -1,6 +1,6 @@
 <?php
   $user = $user[0];
-  $deathstory = query("SELECT * FROM killstory WHERE dead=? AND is_kill_story=1", $user["userid"]);
+  $deathstory = query("SELECT * FROM killstory WHERE dead=? AND is_kill_story=0", $user["userid"]);
   $deathstory = (count($deathstory) > 0);
 ?>
 <div style="text-align: center">
