@@ -12,7 +12,7 @@
 <script>
   $(document).ready(function(){
     var alpha = 50.001
-    var beta = 3896.786
+    var beta = 3775.101
 
     function adjust(hour){
       var timeSubtract = 0
@@ -30,7 +30,7 @@
     }
 
     function find_prob(hour){
-      var prob = (-1*Math.pow(beta,alpha))*Math.pow(beta+adjust(hour)*<?= $alive ?>,-1*alpha) + 1;
+      var prob = (-1*Math.pow(beta,alpha))*Math.pow(beta+adjust(hour)*(<?= $alive ?> - 1),-1*alpha) + 1;
       return "<tr><td>" + String(hour) + "</td><td>" + String(prob).substring(0,5) + "</td></tr>";
     }
 
