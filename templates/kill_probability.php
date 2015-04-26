@@ -39,7 +39,7 @@
       return "<tr><td>" + String(hour) + "</td><td>" + String(prob).substring(0,5) + "</td></tr>";
     }
 
-    var hours = [1,2,4,12,24]
+    var hours = [1,2,4,8,12,24]
     for(n in hours){
       $("#probTBody").append(find_prob(hours[n]))
     }
