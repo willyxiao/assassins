@@ -28,7 +28,7 @@
 				lower = 1
 				upper = 10
 
-				timeSubtract += max(0, max(d, upper) - min(a, lower))
+				timeSubtract += Math.max(0, Math.max(d, upper) - Math.min(a, lower))
 
 				return (hours - timeSubtract)
 			}
