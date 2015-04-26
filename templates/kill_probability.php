@@ -1,6 +1,8 @@
 <a href="https://medium.com/@willyxiao/a410d6d76a2d"><h3>Predicted Next Kill</h3></a>
+<h4>Coming soon!</h4>
+<?php /*
 <table>
-  <thead>
+ <thead>
     <tr>
       <th>Within next X hours</th>
       <th>Probability</th>
@@ -45,3 +47,4 @@
     }
   })
 </script>
+*/ ?>
