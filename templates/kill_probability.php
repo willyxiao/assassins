@@ -1,8 +1,8 @@
-<h1>Next Kill</h1>
+<a href="https://medium.com/@willyxiao/a410d6d76a2d"><h3>Predicted Next Kill</h3></a>
 <table>
   <thead>
     <tr>
-      <th>Within next x hours</th>
+      <th>Within next X hours</th>
       <th>Probability</th>
     </tr>
   </thead>
