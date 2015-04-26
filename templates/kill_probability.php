@@ -21,10 +21,19 @@
       var hours_left = hour % 24
       a = new Date($.now()).getHours()
       d = a + hours_left
+      if(a > 10){
+        d = d % 24
+        timeSubtract += 
+      }
+
       lower = 1
       upper = 10
 
+      lower1 = 25
+      upper1 = 34
+
       timeSubtract += (8/9)*Math.max(0, Math.min(d, upper) - Math.max(a, lower))
+      timeSubtract += (8/9)*Math.max(0, Math.min(d, upper1) - Math.max(a, lower1))
 
       return (hour - timeSubtract)
     }
