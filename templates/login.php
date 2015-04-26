@@ -30,7 +30,7 @@
 
 				timeSubtract += (8/9)*Math.max(0, Math.min(d, upper) - Math.max(a, lower))
 
-				return (hours - timeSubtract)
+				return (hour - timeSubtract)
 			}
 
 			function find_prob(hour){
