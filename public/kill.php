@@ -1,10 +1,13 @@
 <?php
 require("../includes/config.php");
 
+$alive = query("SELECT count(*) as alive FROM users WHERE dead != 1"); 
+$alive = $alive[0]["alive"];
+
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	extract($_GET);
 	if (!isset($uname, $hash) || !isValid($uname, $hash)) {
-		render("login.php", array("fail" => isset($uname, $hash)));
+		render("login.php", array("fail" => isset($uname, $hash), "alive" => $alive));
 		exit;
 	}
 
@@ -20,14 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	extract($_POST);
 	if (!isset($uname, $password)) {
-		render("login.php");
+		render("login.php", array("alive" => $alive));
 		exit;
 	}
 	$pass = query("SELECT * FROM users WHERE uname=?", $uname);
 	if($pass == false
 	|| count($pass) < 1
 	|| $pass[0]["password"] != $password) {
-		render("login.php", array("fail" => true));
+		render("login.php", array("fail" => true, , "alive" => $alive));
 		exit;
 	}
 
