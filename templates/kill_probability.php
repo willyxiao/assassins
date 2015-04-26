@@ -21,10 +21,6 @@
       var hours_left = hour % 24
       a = new Date($.now()).getHours()
       d = a + hours_left
-      if(a > 10){
-        d = d % 24
-        timeSubtract += 
-      }
 
       lower = 1
       upper = 10
