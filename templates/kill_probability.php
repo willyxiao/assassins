@@ -9,12 +9,11 @@
   <tbody id="probTBody">
   </tbody>
 </table>
-<h3>Expected Time Until</h3>
 <table>
   <thead>
     <tr>
       <th>Players Left</th>
-      <th>Days</th>
+      <th>Expected Days</th>
     </tr>
   </thead>
   <tbody id="eTBody">
@@ -78,7 +77,7 @@
         $("#eTBody").append("<tr><td>"
           + playersLeft[n].toString().substring(0,5) + "</td><td>"
           + addMinutes(new Date($.now()),
-                      total_expected_times[(alive - playersLeft[n] - 1)]/(24*16)*60)
+                      total_expected_times[(alive - playersLeft[n] - 1)]/(24*16)*60).toLocaleString()
           + "</td></tr>")
       }
     }
