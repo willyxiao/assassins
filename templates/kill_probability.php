@@ -68,12 +68,18 @@
       total_expected_times[total_expected_times.length] = total_sum
     }
 
+    function addMinutes(date, minutes) {
+        return new Date(date.getTime() + minutes*60000);
+    }
+
     var playersLeft = [30, 25, 20, 15, 10]
     for(n in playersLeft){
       if(playersLeft[n] < alive){
         $("#eTBody").append("<tr><td>"
           + playersLeft[n].toString().substring(0,5) + "</td><td>"
-          + (total_expected_times[(alive - playersLeft[n] - 1)]/16).toString().substring(0,5) + "</td></tr>")
+          + addMinutes(new Date($.now()),
+                      total_expected_times[(alive - playersLeft[n] - 1)]/(24*16)*60)
+          + "</td></tr>")
       }
     }
   })
