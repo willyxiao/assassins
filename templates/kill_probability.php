@@ -72,8 +72,8 @@
     for(n in playersLeft){
       if(playersLeft[n] < alive){
         $("#eTBody").append("<tr><td>"
-          + playersLeft[n].toString() + "</td><td>"
-          + (total_expected_times[(alive - playersLeft[n] - 1)]/16).toString() + "</td></tr>")
+          + playersLeft[n].toString().substring(0,5) + "</td><td>"
+          + (total_expected_times[(alive - playersLeft[n] - 1)]/16).toString().substring(0,5) + "</td></tr>")
       }
     }
   })
