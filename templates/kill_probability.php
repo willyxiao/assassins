@@ -78,7 +78,7 @@
 
     function getRealHours(adjHours){
       for(i in hourModel){
-        if(hourModel[i][1] < adjHours){
+        if(hourModel[i][1] > adjHours){
           return hourModel[i][0]
         }
       }
