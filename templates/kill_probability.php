@@ -71,13 +71,26 @@
         return new Date(date.getTime() + minutes*60000);
     }
 
+    var hourModel = []
+    for(realHours = 0; realHours < 100; realHours++){
+      hourModel[hourModel.length] = [realHours, adjust(realHours)]
+    }
+
+    function getRealHours(adjHours){
+      for(i in hourModel){
+        if(hourModel[i][1] < adjHours){
+          return hourModel[i][0]
+        }
+      }
+    }
+
     var playersLeft = [30, 25, 20, 15, 10]
     for(n in playersLeft){
       if(playersLeft[n] < alive){
         $("#eTBody").append("<tr><td>"
           + playersLeft[n].toString().substring(0,5) + "</td><td>"
           + addMinutes(new Date($.now()),
-                      total_expected_times[(alive - playersLeft[n] - 1)]/(16/24)*60).toLocaleString()
+                      getRealHours(total_expected_times[(alive - playersLeft[n] - 1)])*60).toLocaleString()
           + "</td></tr>")
       }
     }
