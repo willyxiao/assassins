@@ -72,7 +72,7 @@
     }
 
     var hourModel = []
-    for(realHours = 0; realHours < 100; realHours++){
+    for(realHours = 0; realHours < 200; realHours++){
       hourModel[hourModel.length] = [realHours, adjust(realHours)]
     }
 
