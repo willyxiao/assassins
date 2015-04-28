@@ -23,8 +23,8 @@
   $(document).ready(function(){
     var alive = <?= $alive ?>
 
-    var alpha = 79.001
-    var beta = 6176.9
+    var alpha = 92.001
+    var beta = 7023.411
 
     function adjust(hour){
       var timeSubtract = 0
