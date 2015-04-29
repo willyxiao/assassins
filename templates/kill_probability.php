@@ -84,7 +84,7 @@
       }
     }
 
-    var playersLeft = [30, 25, 20, 15, 10]
+    var playersLeft = [15, 10, 5, 1]
     for(n in playersLeft){
       if(playersLeft[n] < alive){
         $("#eTBody").append("<tr><td>"
